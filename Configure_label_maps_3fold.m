@@ -1,0 +1,24 @@
+clc;
+clear all;
+close all;
+cd('Z:\Hassaan\DCIS\B_vs_M_mycomputer');
+path='Z:\Hassaan\HE_Scanner\Standard_Normal\Testing_LM_comparison_stained_unstained\stained_core_bigger_dataset\Partition_glands\';
+load(strcat(path,'gland_tr12_benign.mat'),'gland_tr12_benign');
+load(strcat(path,'gland_tr12_malignant.mat'),'gland_tr12_malignant');
+load(strcat(path,'gland_tr23_benign.mat'),'gland_tr23_benign');
+load(strcat(path,'gland_tr23_malignant.mat'),'gland_tr23_malignant');
+load(strcat(path,'gland_tr13_benign.mat'),'gland_tr13_benign');
+load(strcat(path,'gland_tr13_malignant.mat'),'gland_tr13_malignant');
+load(strcat(path,'gland_val1_benign.mat'),'gland_val1_benign');
+load(strcat(path,'gland_val1_malignant.mat'),'gland_val1_malignant');
+load(strcat(path,'gland_val2_benign.mat'),'gland_val2_benign');
+load(strcat(path,'gland_val2_malignant.mat'),'gland_val2_malignant');
+load(strcat(path,'gland_val3_benign.mat'),'gland_val3_benign');
+load(strcat(path,'gland_val3_malignant.mat'),'gland_val3_malignant');
+
+write_label_maps_3fold(gland_tr12_benign,gland_tr12_malignant,0,1);
+write_label_maps_3fold(gland_tr23_benign,gland_tr23_malignant,0,2);
+write_label_maps_3fold(gland_tr13_benign,gland_tr13_malignant,0,3);
+write_label_maps_3fold(gland_val1_benign,gland_val1_malignant,1,1);
+write_label_maps_3fold(gland_val2_benign,gland_val2_malignant,1,2);
+write_label_maps_3fold(gland_val3_benign,gland_val3_malignant,1,3);
